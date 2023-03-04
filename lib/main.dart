@@ -86,20 +86,22 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             SizedBox(height: 8),
-            Card(
-              child: TextButton(
-                onPressed: () {},
-                child: ListTile(
-                  leading: Icon(Icons.cloud),
-                  title: Center(child: Text('Button 3')),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                ),
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                  minimumSize: Size(double.infinity, 0),
-                ),
-              ),
-            ),
+                  Card(
+                    child: TextButton(
+                      onPressed: () {},
+                      child: ListTile(
+                        leading: Image.asset(
+                          'assets/images/potato.jpg',
+                          fit: BoxFit.cover,
+                          width: 40,
+                          height: 40,
+                        ),
+                        title: Center(child: Text('Button 1')),
+                        trailing: Icon(Icons.arrow_forward_ios),
+                        onTap: _onButton1Pressed,
+                      ),
+                  ),
+                  ),
           ],
         ),
       ),
