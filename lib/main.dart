@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fridge',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -167,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
     children: [
 
     FloatingActionButton(
-    onPressed: () {},
+      onPressed: () => _dialogBuilder(context),
     tooltip: 'Button 1',
     child: Icon(Icons.ac_unit),
     ),
@@ -176,6 +177,39 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+Future<void> _dialogBuilder(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Holi!'),
+        content: const Text('Puerta de la nevera abierta, cerrar?'),
+        actions: <Widget>[
+          TextButton(
+            style: TextButton.styleFrom(
+              textStyle: Theme.of(context).textTheme.labelLarge,
+            ),
+            child: const Text('Yes'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+              textStyle: Theme.of(context).textTheme.labelLarge,
+            ),
+            child: const Text('Fuck Yeah!'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
 class Page2 extends StatelessWidget {
   @override
